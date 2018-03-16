@@ -1,0 +1,132 @@
+---
+output: 
+    html_document:
+        theme: simplex
+runtime: shiny
+---
+![](https://d3n8a8pro7vhmx.cloudfront.net/righttoresearch/pages/1004/features/original/Berlin_-_NB_Banner.png?1473355209)
+
+# **OpenCon Berlin 2016 Reproducibility Hack!**
+<br>
+
+#### **24 Nov 2016 1pm - 6pm (or till we get kicked out)**
+##### [**Technical University of Berlin, Centre for Entrepreneurship**](http://www.entrepreneurship.tu-berlin.de/menue/willkommen/)
+###### [***Hardenbergstraße 38, 10623 Berlin***](https://goo.gl/maps/Q9rMC1vpwpL2)
+
+<br>
+
+### [**REGISTER**](https://www.eventbrite.co.uk/e/opencon-berlin-hackathon-tickets-28890667765)
+***
+
+### We're kicking off [**OpenCon Berlin 2016**](http://www.opencon2016.org/opencon_2016_berlin) with a 
+## **`hack / creative collaborative coding event!`**
+
+There'll be plenty of options to work on a variety of projects according to skills and interest including:
+
+- Developing the [**Rfigshare package**](https://github.com/ropensci/rfigshare) (figshare new API, in potential collaboration with [figshare](https://figshare.com/) and [Ropensci](http://ropensci.org/)).
+- Continue work on the [**CeTrAn project**](https://github.com/jcolomb/CeTrAn) using the new rfigshare package.
+
+<br>
+
+### but we have also come up with a core theme: 
+## a **paper reproducibility hack!**
+
+We are all excited by the progress made by many to **make their papers fully reproducible by publishing code and data**. We know how challenging it can be so we want to showcase the value of the practice, both for original authors and and as a learning experience for the reproducers. 
+
+Inspired by **Owen Petchey's** [**Reproducible Research in Ecology, Evolution, Behaviour, and Environmental Studies course**](https://github.com/opetchey/RREEBES), where students attempt to  reproduce the analyses and figures of a paper from the raw data, we want to attempt to do the same. While they take a few months over a number of sessions, we only have a day so instead we'll be trying to do the same but with **papers that have also published code**. 
+
+What we love about this approach, and why we think it fits well in the space of a hack, is that it provides a low-pressure environment to actually get working with other people's code and data. Attempting reproduction provides an opportunity to test how reproducible papers are **'out of the box'**, enabling evaluation of how successful current practices are, identifying what worked and where the most pressing weaknessess are.
+
+This is by no means an attempt to discredit work so consent by authors will be sought and their involvement is encouraged. We see reproduction as beneficial scientific activitiy in itself, with useful outcomes for the papers and valuable learning experiences for the participants. We hope to feedback our experiences to authors and of course spread the word on successful practice!
+
+### **a collaborative output:**
+
+We want to **collaborativelly collate and communicate our experiences and outputs** during the session. By collating information and discussions openly through [**github**](https://github.com/features) and collaboratively contributing narrative, we hope to end up with at least a comprehensive blog post or potentially a short paper using [**overleaf**](https://www.overleaf.com/?utm_expid=71700200-7.jX1xSGOgQzGKvOn08hBHag.0).
+
+##### **Go to event** [**github repo**](https://github.com/annakrystalli/OpenConBerlin_ReproHack)
+
+<br>
+
+### **Nominate a paper:**
+
+We invite nominations from anyone, especially if you would like to **test one of your own papers!** Either way, we encourage proponents to seek consent from the original authors for their nominations.
+
+
+
+```{r, echo=FALSE}
+library("shiny")
+ wellPanel(a("Nominate Paper", class = "btn btn-primary btn-md", 
+          href = "https://goo.gl/forms/DJoAHVDCeWlG92b03"))
+```
+
+<br>
+
+## **Proposed papers:**
+
+```{r, echo=FALSE}
+ wellPanel(a("Refresh paper list", class = "btn btn-primary btn-md", 
+          href = "javascript:history.go(0)"))
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+require(googlesheets)
+suppressMessages(gs_auth(token = "googlesheets_token.rds", verbose = FALSE))
+```
+
+
+```{r, message=FALSE, results='asis', warning=FALSE,  echo=FALSE}
+responses_gs <- gs_title("OpenCon Berlin Reproducibility Hack (Responses)")
+responses <- gs_read(responses_gs)
+
+
+for (i in 1:nrow(responses)){
+    cat('\n')     
+    cat('\n')
+    cat('\n') 
+    cat("### **", i,". ", as.character(responses[i, "Paper title"]), "**", "\n", "\n", sep = "") 
+    cat("**", gsub("\n", "", gsub("[*]", "", as.character(responses[i, "Paper citation"]))), "\n**", "\n", "\n", sep = "")
+    cat("##### *submitted by ", as.character(responses[i, "Name"]),"*", "\n")
+    cat('\n')
+    cat('\n')
+    cat("**Why should we attempt to reproduce this paper?**", "\n", "\n")
+    cat(as.character(responses[i, "Why should we attempt to reproduce this paper?"]), "\n")
+    cat('\n')
+    cat("**Paper URL:** [", as.character(responses[i, "Paper URL"]),"](",as.character(responses[i, "Paper URL"]) ,")", "\n")
+    cat('\n')
+    cat("**Data URL:**", as.character(responses[i, "Data URL"]), "\n")
+    cat('\n')
+    cat("**Code URL:**", as.character(responses[i, "Code URL"]), "\n")
+    cat('\n', "\n")
+    cat("**Required programming skills:**", as.character(responses[i, "Required programming skills"]), "\n")
+    cat('\n', "\n",'\n')
+    
+    
+}
+
+```
+
+***
+
+<br>
+<br>
+
+### Event location
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1214.0944192570532!2d13.324341425925487!3d52.51192152731186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a8511d28d14161%3A0x86e4ae804bd7e059!2sTU+Berlin%2C+Centre+for+Entrepreneurship!5e0!3m2!1sen!2suk!4v1477309267070" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+
+### get in touch
+
+Chat to us on [**gitter**](https://gitter.im/OCB_ReproHack/Lobby) or check out the [**hackpad**](https://public.etherpad-mozilla.org/p/OpenConBerlin2016_ReproHack)
+
+<br>
+
+***
+
+<img src="https://www.overleaf.com/overleaf-partner/overleaf-greygreen-410.png" width="150px"></img>
+<img src="https://paperhive.org/static/img/logo.png" width="150px"></img>
+<img src="https://www.coar-repositories.org/files/OpenAIRE-Logo1.jpg" width="150px"></img>
+<img src="http://www.nordp.org/assets/SponsorLogos/digitalscience.png" width="150px"></img>
+<img src="https://peerreviewweek.files.wordpress.com/2016/06/scienceopen-logo1.png" width="200px"></img>
+
+

@@ -1,0 +1,24 @@
+---
+output: 
+    html_document:
+        theme: simplex
+---
+
+<img src="https://d3n8a8pro7vhmx.cloudfront.net/righttoresearch/pages/1004/features/original/Berlin_-_NB_Banner.png?1473355209" height="100px", width="500px>
+
+# Welcome to the **#OpenConBerlin** 2016 **#ReproHack**!
+
+<br>
+
+## **Resources:**
+
+<br>
+
+### - **Reprohack Paper list:** http://bit.ly/OCB_ReproHack_papers
+### - **Github repo:** http://bit.ly/OCB_ReproHack_repo
+### - **Hackpad:** http://bit.ly/OCB_ReproHack_hackpad
+### - **blogpad:** http://bit.ly/OCB_ReproHack_blogpad
+
+<br>
+
+<img src="https://www.overleaf.com/overleaf-partner/overleaf-greygreen-410.png" width="250px"></img><img src="https://paperhive.org/static/img/logo.png" width="250px"></img>
